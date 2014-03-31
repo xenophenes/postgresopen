@@ -5,8 +5,48 @@
 #
 # Questions / comments -> Stephen Frost (sfrost@snowman.net)
 
-VARWWW='/var/www'
+VARWWW='/srv/www/postgresopen.org/template'
 GITREPO='/home/sfrost/git/pgopen2014/template'
+
+if [ -z "$VARWWW" -o -z "$GITREPO" ]; then
+  echo "Must have var/www and git repo values set!"
+  exit 1
+fi
+
+if [ ! -d "$VARWWW" -o ! -d "$GITREPO" ]; then
+  echo "var/www and git repo must be directories!"
+  exit 1
+fi
+
+# Next we'll look to see if there have been a large number of changes in the 
+# last two revisions of the config. Basically attempting to catch an accidental 
+# concatination or similar badness.
+
+echo "diff for site:"
+echo -------------------------
+sudo diff -uNr $VARWWW $GITREPO
+
+echo -----------------------------
+echo "Do these changes look good?"
+read answer
+if [ "$answer" = "Y" -o "$answer" = "y" ]; then
+    echo "OK"
+
+    # copy the files to $VARWWW
+    sudo /usr/bin/rsync -a --delete $GITREPO/ $VARWWW/
+    if [ "$?" != "0" ]; then
+        echo "rsync failed....."
+        exit 1
+    fi
+
+    exit 0
+else
+    echo "Aborting..."
+    exit 1
+fi
+
+VARWWW='/srv/www/postgresopen.org/media'
+GITREPO='/home/sfrost/git/pgopen2014/media'
 
 if [ -z "$VARWWW" -o -z "$GITREPO" ]; then
   echo "Must have var/www and git repo values set!"

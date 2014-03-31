@@ -1,0 +1,43 @@
+{%extends conftemplbase %}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+                <div class="container">
+
+                        <!-- CFP -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Call for Papers - {{conference}}</h2>
+                                </div>
+                                
+                                <p><a href="..">Back</a> to your submissions.</p>
+                                <p>{{conference.callforpapersintro|safe}}</p>
+                        
+                        </section>
+                
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Session: {{session.title}}</h2>
+                                                <p>Please complete the following fields. You may use markdown in the abstract.</p>
+
+                                                {% if form.errors %}
+                                                <p><b style="color:red;">Note! This form contains errors and has not been saved!</b></p>
+                                                {% endif %}
+
+                                                <form class="pgeucfpform" method="post" action=".">
+                                                    <table id="cfp_table">
+                                                         {{form.as_table}}
+                                                    </table>
+                                                    <input type="submit" value="Save">
+                                                </form>
+
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+{%endblock%}

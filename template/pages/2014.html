@@ -1,0 +1,130 @@
+{%extends "base2014.html" %}
+{%load markup%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+                <div class="container">
+                        
+                        <!-- What we do -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Join in the fun!</h2>
+                                </div>
+                                <p><b>Connecting business with database innovation.</b></p>
+                                
+                                <p>PostgresOpen 2014 will be held on September 17-September 19th in Chicago, at Hotel Sax. It will deliver three days packed with tutorials and presentations about PostgreSQL and related technologies, one day of extended trainings, and the usual hallway and social track!</p>                            
+                                <p>We target entrepreneurs, technologies and decision-makers on the leading edge of data management, open source database innovation and disruption of the database industry.  PostgresOpen will promote the business of PostgreSQL as well as its use and development</p>
+
+                        </section>
+
+                <!-- Secondary Header -->                       
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Postgres Community</h2>
+                                                <p>The PostgreSQL Community organizes conferences with many technical and business talks by developers and key users.  In addition to PostgresOpen, PostgreSQL Europe will be holding a conference in the Fall of 2014- <a href="http://2014.pgconf.eu">2014.pgconf.eu</a>.
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                        
+                <!-- Secondary Header -->                       
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Important Dates</h2>
+                                                <ul>
+                                                        <li>Call for Presentations Opens: April 7, 2014</li>
+                                                        <li>Early Bird Registration Opens: May 19, 2014</li>
+                                                        <li>Call for Presentations Closes: May 30, 2014</li>
+                                                        <li>Speakers Notified of Talk Acceptance: June 9, 2014</li>
+                                                        <li>Schedule Announced: June 16th, 2014</li>
+                                                        <li>Early Bird Registration Closes: June 30, 2014</li>
+                                                        <li>Regular Registration: July 1 - September 12, 2014</li>
+                                                        <li>Conference Dates: September 17-19, 2014</li>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                        
+                <!-- Secondary Header -->                       
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>News</h2>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                        
+                        <!-- Post -->
+                        <article class="post">
+
+                                <div class="post-body clearfix">
+                                        <div class="post-date">
+                                                <div class="post-date-inner">
+                                                        Mar 27
+                                                        <span class="post-date-year">2014</span>
+                                                </div>
+                                        </div>
+                                        <h2 class="post-title"><a href="/2014/callforpapers">Call for Papers Opening Soon!</a></h2>
+                                        <div class="post-excerpt">
+                                                The PostgresOpen 2014 Call for Papers will be opening soon!
+                                        </div>
+                                        <footer class="post-footer">
+                                                <span class="post-author">-- PostgresOpen 2014 Committee</span>
+                                        </footer>
+                                </div>
+                        </article>
+                        <!-- Post / End -->                     
+
+                <!-- Secondary Header -->                       
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Flickr</h2>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->                       
+                        <section class="section">
+                                        <!-- Flickr Widget -->
+                                        <div class="widget widget__sidebar widget_flickr">
+                                                <div class="widget-title">
+                                                        <h3>PostgresOpen 2013</h3>
+                                                </div>
+                                                <!-- Flickr images will appear here -->
+                                                <ul id="flickr" class="thumbs"></ul>
+                                        </div>
+                                        <!-- Flickr Widget / End -->
+                        </section>
+
+
+                </div>
+        </main>
+
+        <script>
+                jQuery(document).ready(function() {
+                        jQuery('.tp-banner').revolution({
+                                delay:6000,
+                                startwidth:1140,
+                                startheight:480,
+                                hideThumbs:10,
+                                fullWidth:"on",
+                                forceFullWidth:"on",
+                                hideCaptionAtLimit:480,
+                                //navigationType: "none",
+                                soloArrowLeftHOffset:20,
+                                soloArrowRightHOffset:20,
+                                soloArrowLeftVOffset:20,
+                                soloArrowRightVOffset:20
+                        });
+                        $("#topmenu").removeClass("active");
+                        $("#topmenuhome").addClass("active");
+           });
+
+        </script>
+
+{%endblock%}
