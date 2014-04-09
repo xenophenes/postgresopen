@@ -38,8 +38,6 @@ if [ "$answer" = "Y" -o "$answer" = "y" ]; then
         echo "rsync failed....."
         exit 1
     fi
-
-    exit 0
 else
     echo "Aborting..."
     exit 1
