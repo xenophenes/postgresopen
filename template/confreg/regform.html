@@ -1,0 +1,85 @@
+{%extends conftemplbase %}
+{%load markup%}
+{%block extrahead%}
+<script language="javascript">
+function confirmInvoice() {
+   return confirm('Once you proceed to payment, an invoice will be generated for your registration, and you will no longer be able to change it.\n\nThis invoice will be addressed to the person, company and address specified in the registration - please take a moment to review those fields if you need to.\n\nThe invoice will be delivered as a PDF in your browser, no paper invoice will be sent.\n\nNote that if your registration should be part of a bulk payment, you should NOT proceed with this step!\n\nAre you sure you want to proceed to payment?');
+}
+function confirmCancel() {
+   return confirm('Are you sure you want to cancel and remove your registration?');
+}
+</script>
+{%endblock%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Conference Registration - {{conference}}</h2>
+                                </div>
+
+                                <p>On this page you can register for <a href="{{conference.confurl}}">{{conference}}</a>.</p>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <p>
+                                                <b>Note!</b> if you wish to register multiple people,
+                                                you must <a href="/logout">log out</a> and back in (with a different account)
+                                                between each registration to avoid conflicts.
+                                                </p>
+
+                                                <form action="." method="post" class="pgeuregform">
+                                                {% if form_is_saved %}
+                                                <p><b>Note!</b> Your registration is not confirmed until the payment has been confirmed.</p>
+                                                {% endif %}
+
+                                                {% if form.errors %}
+                                                <p style="color:red; font-weight: bold">Note! This form contains errors and has not been saved!</p>
+                                                {% endif %}
+
+                                                {%if form.non_field_errors%}{{form.non_field_errors}}{%endif%}
+
+                                                {%for fieldset in form.fieldsets%}
+                                                 <fieldset id="{{fieldset.id}}">
+                                                  <legend>{{fieldset.legend}}</legend>
+                                                  {%if fieldset.intro or fieldset.introhtml%}
+                                                  <div>{{fieldset.intro|markdown}}{{fieldset.introhtml}}</div>
+                                                  {%endif%}
+                                                  {%for f in fieldset.fields%}
+                                                  <div class="regwrap{%if f.errors%} errfld{%endif%}">
+                                                    <div class="regleft">
+                                                      {{f.label_tag}} <br/>
+                                                      {{f}}
+                                                    </div>
+                                                    <div class="regright">
+                                                      {% if f.errors %}{{ f.errors}}{% endif %}
+                                                    </div>
+                                                  </div>
+                                                  {%endfor%}
+                                                 </fieldset>
+                                                {%endfor%}
+
+                                                 <p>
+                                                   You can edit your registration details and save as many times as you want
+                                                   in the process. Once you are finished, click <i>Save and finish registration</i>
+                                                   to proceed to the payment options.
+                                                 </p>
+                                                 <input type="submit" name="submit" value="Save and continue editing"><br/>
+                                                 <input type="submit" name="submit" onclick="return confirmInvoice()" value="Save and finish registration"><br/>
+                                                 <input type="submit" name="submit" onclick="return confirmCancel()" value="Cancel registration"><br/>
+                                                </form>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+
+{%endblock%}

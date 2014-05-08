@@ -1,0 +1,30 @@
+{%extends conftemplbase %}
+{%block content%}
+
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Conference Registration Invoice</h2>
+                                </div>
+
+                                <p>An invoice has been prepared for your conference registration. This invoice is due for immediate payment.</p>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                {%include "invoices/userinvoice_spec.html"%}
+                                                <p><a href="../../">Return</a> to your registration</p>
+                                        </div>
+                                </div>
+                        </section>
+                </div>
+        </main>
+
+{%endblock%}
