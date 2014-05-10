@@ -25,7 +25,7 @@ fi
 echo "diff for site:"
 echo -------------------------
 sudo diff -uNr $VARWWW $GITREPO
-sudo /usr/bin/rsync --dry-run -a --delete $GITREPO/ $VARWWW/
+sudo /usr/bin/rsync --dry-run -a --no-owner --no-group --delete $GITREPO/ $VARWWW/
 
 echo -----------------------------
 echo "Do these changes look good?"
@@ -34,7 +34,7 @@ if [ "$answer" = "Y" -o "$answer" = "y" ]; then
     echo "OK"
 
     # copy the files to $VARWWW
-    sudo /usr/bin/rsync -a --delete $GITREPO/ $VARWWW/
+    sudo /usr/bin/rsync -a --no-owner --no-group --delete $GITREPO/ $VARWWW/
     if [ "$?" != "0" ]; then
         echo "rsync failed....."
         exit 1
@@ -64,7 +64,7 @@ fi
 echo "diff for site:"
 echo -------------------------
 sudo diff -uNr $VARWWW $GITREPO
-sudo /usr/bin/rsync --dry-run -a --delete $GITREPO/ $VARWWW/
+sudo /usr/bin/rsync --dry-run -a --no-owner --no-group --delete $GITREPO/ $VARWWW/
 
 echo -----------------------------
 echo "Do these changes look good?"
@@ -73,7 +73,7 @@ if [ "$answer" = "Y" -o "$answer" = "y" ]; then
     echo "OK"
 
     # copy the files to $VARWWW
-    sudo /usr/bin/rsync -a --delete $GITREPO/ $VARWWW/
+    sudo /usr/bin/rsync -a --no-owner --no-group --delete $GITREPO/ $VARWWW/
     if [ "$?" != "0" ]; then
         echo "rsync failed....."
         exit 1
