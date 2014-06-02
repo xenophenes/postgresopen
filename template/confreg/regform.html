@@ -55,7 +55,7 @@ function confirmCancel() {
                                                   {%for f in fieldset.fields%}
                                                   <div class="regwrap{%if f.errors%} errfld{%endif%}">
                                                     <div class="regleft">
-                                                      {{f.label_tag}} <br/>
+                                                      {%if f.field.required %}<span class="asteriskField">*</span>{%endif%} {{f.label_tag}} <br/>
                                                       {{f}}
                                                     </div>
                                                     <div class="regright">
