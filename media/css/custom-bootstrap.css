@@ -12264,3 +12264,5 @@ img.mfp-img {
 .alt-color {
 	background-color: #f9f7d1;
 }
+
+fieldset#additional_options ul { list-style:none }
