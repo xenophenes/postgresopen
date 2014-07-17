@@ -52,6 +52,8 @@ div.track{{track.id}} {
                                    This schedule is subject to changes. This page will be updated when any
                                    changes occur.
                                 </p>
+                                <p>A list of the sessions can be found <a href="/events/sessions/pgopen2014/">here</a>.
+                                </p>
                         </section>
                 
                 <!-- Secondary Header -->
@@ -88,5 +90,14 @@ div.track{{track.id}} {
                 <p>This schedule is also available in <a href="ical/">iCalendar</a> format.</p>
 
         </main>
+
+        <script>
+                jQuery(document).ready(function() {
+                        $("#topmenu").removeClass("active");
+                        $("#topmenu2014schedule").addClass("active");
+           });
+
+        </script>
+
 
 {%endblock%}
