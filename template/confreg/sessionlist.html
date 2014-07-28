@@ -1,0 +1,52 @@
+{%extends conftemplbase %}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Conference Sessions - {{conference}}</h2>
+                                </div>
+
+                                <p> The following list contains all the talks that have been confirmed so far
+                                    for {{conference}}.  Note that they may not yet have been scheduled!  You
+                                    can find the full conference information <a href="{{conference.confurl}}">here</a>.
+                                </p>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                            {%for session in sessions%}
+                                                {%ifchanged session.track%}
+                                                    {%if not forloop.first%}
+                                                        </ul>
+                                                    {%endif%}
+                                                    <p><b>{{session.track.trackname}}</b></p>
+                                                    <ul>
+                                                {%endifchanged%}
+                                                <li><a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.title}}</a> ({{session.speaker_list}})</li>
+                                                {%if forloop.last%}
+                                                    </ul>
+                                                {%endif%}
+                                            {%endfor%}
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+
+        <script>
+                jQuery(document).ready(function() {
+                        $("#topmenu").removeClass("active");
+                        $("#topmenu2014sessions").addClass("active");
+           });
+
+        </script>
+
+{%endblock%}

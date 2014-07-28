@@ -1,0 +1,53 @@
+{%extends conftemplbase %}
+{%load markup%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>{{session.title}}</h2>
+                                        <a href="../../">Back</a><br/>
+                                </div>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                            <p>
+                                            {%if session.starttime|date %}<b>Date:</b> {{session.starttime|date}}<br/>{%endif%}
+                                            {%if session.starttime|time:"H:i" %}<b>Time:</b> {{session.starttime|time:"H:i"}} - {{session.endtime|time:"H:i"}}<br/>{%endif%}
+                                            {%if session.room.roomname %}<b>Room:</b> {{session.room.roomname}}<br/>{%endif%}
+                                            {%if conference.skill_levels %}
+                                            <b>Level:</b> {{session.skill_level_string}}<br/>
+                                            {%endif%}
+                                            {%if conference.feedbackopen and session.can_feedback%}
+                                            <b>Feedback:</b> <a href="/events/feedback/{{conference.urlname}}/{{session.id}}/">Leave feedback</a><br/>
+                                            {%endif%}
+                                            </p>
+
+                                            <p>
+                                            {{session.abstract|markdown}}
+                                            </p>
+
+                                            <h2>Speaker</h2>
+                                            {%for speaker in session.speaker.all%}
+                                            <b><a href="../../speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></b><br/>
+                                            {%endfor%}
+
+                                            <p>
+                                            {{session.speaker.abstract|markdown}}
+                                            </p>
+
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+{%endblock%}
+
