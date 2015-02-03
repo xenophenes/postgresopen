@@ -40,7 +40,7 @@ div.track{{track.id}} {
         ================================================== -->
         <main class="main-content">
 
-                <p>This schedule is also available for <a href="/m/pgopen2014/">mobile users</a>
+                <p>This schedule is also available for <a href="/m/{{conference.urlname}}/">mobile users</a>
                    and is available in <a href="ical/">iCalendar</a> format.</p>
 
                 <div class="container">
@@ -56,7 +56,7 @@ div.track{{track.id}} {
                                    This schedule is subject to changes. This page will be updated when any
                                    changes occur.
                                 </p>
-                                <p>A list of the sessions can be found <a href="/events/sessions/pgopen2014/">here</a>.
+                                <p>A list of the sessions can be found <a href="/events/sessions/{{conference.urlname}}/">here</a>.
                                 </p>
                         </section>
                 
@@ -96,7 +96,7 @@ div.track{{track.id}} {
         <script>
                 jQuery(document).ready(function() {
                         $("#topmenu").removeClass("active");
-                        $("#topmenu2014schedule").addClass("active");
+                        $("#topmenuschedule").addClass("active");
            });
 
         </script>
