@@ -6,7 +6,7 @@
 # Questions / comments -> Stephen Frost (sfrost@snowman.net)
 
 VARWWW='/srv/www/beta.postgresopen.org/template'
-GITREPO='/home/sfrost/git/pgopen2014/template'
+GITREPO='/home/sfrost/git/postgresopen/template'
 
 if [ -z "$VARWWW" -o -z "$GITREPO" ]; then
   echo "Must have var/www and git repo values set!"
@@ -45,7 +45,7 @@ else
 fi
 
 VARWWW='/srv/www/beta.postgresopen.org/media'
-GITREPO='/home/sfrost/git/pgopen2014/media'
+GITREPO='/home/sfrost/git/postgresopen/media'
 
 if [ -z "$VARWWW" -o -z "$GITREPO" ]; then
   echo "Must have var/www and git repo values set!"
