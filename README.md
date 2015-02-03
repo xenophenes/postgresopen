@@ -1,8 +1,4 @@
-pgopen2014
-==========
+postgresopen
+============
 
-PostgresOpen 2014 Templates
-
-Wheeee, this is me, editing the README.
-
-Second edit.
+PostgresOpen Templates
