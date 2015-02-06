@@ -61,26 +61,32 @@
                         <!-- Secondary Header -->
 
                         <!-- Post -->
+			{%for newsitem in news %}
                         <article class="post">
 
                                 <div class="post-body clearfix">
                                         <div class="post-date">
                                                 <div class="post-date-inner">
-                                                        Feb 9
-                                                        <span class="post-date-year">2015</span>
+                                                        {{newsitem.pretty_date}}
+                                                        <!-- <span class="post-date-year">2015</span> -->
                                                 </div>
                                         </div>
-                                        <h2 class="post-title"><a href="/2015/tickets">PostgresOpen 2015 Announced!</a></h2>
+                                        <h2 class="post-title">{{newsitem.title}}</h2>
                                         <div class="post-excerpt">
                                                 <p>
-                                                  We are proud to announce PostgresOpen 2015 in Dallas, Texas!
+						 {%autoescape off%}
+						 {{newsitem.summary|markdown}}
+						 {%endautoescape%}
                                                 </p>
                                         </div>
+					<!--
                                         <footer class="post-footer">
                                                 <span class="post-author">- PostgresOpen 2015 Committee</span>
                                         </footer>
+					-->
                                 </div>
                         </article>
+			{%endfor%}
                         <!-- Post / End -->
 
                         <!-- Post -->
