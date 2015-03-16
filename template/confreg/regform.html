@@ -35,7 +35,7 @@ function confirmCancel() {
                                                 between each registration to avoid conflicts.
                                                 </p>
 
-                                                <form action="." method="post" class="pgeuregform">
+                                                <form action="." method="post" class="pgeuregform">{% csrf_token %}
                                                 {% if form_is_saved %}
                                                 <p><b>Note!</b> Your registration is not confirmed until the payment has been confirmed.</p>
                                                 {% endif %}

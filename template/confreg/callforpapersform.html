@@ -27,7 +27,7 @@
                                                 <p><b style="color:red;">Note! This form contains errors and has not been saved!</b></p>
                                                 {% endif %}
 
-                                                <form class="pgeucfpform" method="post" action=".">
+                                                <form class="pgeucfpform" method="post" action=".">{% csrf_token %}
                                                     <table id="cfp_table">
                                                          {{form.as_table}}
                                                     </table>
