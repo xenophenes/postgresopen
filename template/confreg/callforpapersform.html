@@ -30,6 +30,8 @@
                                                 <form class="pgeucfpform" method="post" action=".">{% csrf_token %}
                                                     <table id="cfp_table">
                                                          {{form.as_table}}
+							 {{ speaker_formset.non_form_errors.as_ul }}
+							 {{ speaker_formset.management_form }}
                                                     </table>
                                                     <input type="submit" value="Save">
                                                 </form>
