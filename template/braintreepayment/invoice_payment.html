@@ -1,0 +1,57 @@
+{%extends "base2015.html" %}
+{%block title%}Invoice payment{%endblock%}
+{%block extrahead%}
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+braintree.setup('{{token}}', "dropin", {
+  container: "payment-form",
+  onReady: function() {
+    document.getElementById('pre-payment-info').remove();
+  }
+});
+</script>
+{%endblock%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+
+<h2>Invoice payment</h2>
+                                </div>
+
+<p>You are about to make a payment of <strong>{{currency_symbol}}{{invoice.total_amount}}</strong> for invoice #{{invoice.id}}.</p>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+
+
+<form id="checkout" method="post" action="/p/braintree/">{%csrf_token%}
+  <input type="hidden" name="invoice" value="{{invoice.id}}">
+  <div id="pre-payment-info">
+    Please wait as the payment processor loads.<br/>
+    If it takes a long time, make sure you have javascript enabled!
+  </div>
+  <div id="payment-form"></div>
+  <br/>
+  <input type="submit" value="Submit payment">
+</form>
+
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+
+
+{%endblock%}

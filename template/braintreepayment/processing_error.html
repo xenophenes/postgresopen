@@ -1,0 +1,39 @@
+{%extends "base2015.html" %}
+{%block title%}Invoice payment failed{%endblock%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+
+                <div class="container">
+
+                        <!-- ConfReg -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+
+<h2>Invoice payment failed</h2>
+<p>
+Your payment failed at our payment gateway. The reason given was:
+</p>
+                                </div>
+                        </section>
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+<p>
+<strong>{{reason}}</strong>
+</p>
+<p>
+<a href="{{url}}">Return</a> to the invoice page to try again, or to
+try a different payment method.
+</p>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                </div>
+        </main>
+
+
+{%endblock%}
