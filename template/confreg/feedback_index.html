@@ -1,0 +1,28 @@
+{%extends conftemplbase %}
+{%block content%}
+
+<!-- Content ================================================== -->
+<main class="main-content">
+  <div class="container">
+
+    <p>On this page you can leave feedback for sessions at {{conference}}.
+    You can return to this page at any time during the conference to
+    view or edit your feedback.</p>
+
+    {%if conference.conferencefeedbackopen or is_tester %}
+      <h2>Conference feedback</h2>
+      <p>
+      Feedback on the <a href="conference/">full conference</a> is currently open.
+      </p>
+    {%endif%}
+
+    <h2>Available sessions</h2>
+    <ul>
+      {% for s in sessions %}
+        <li><a href="{{s.id}}/">{{s}}</a>{%if s.has_feedback%} <img src="/media/img/green_tick.png" alt="green tickmark" />{%endif%}</li>
+      {%endfor%}
+    </ul>
+
+  </div>
+</main>
+{%endblock%}
