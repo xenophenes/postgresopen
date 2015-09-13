@@ -6,7 +6,7 @@
 # Questions / comments -> Stephen Frost (sfrost@snowman.net)
 
 VARWWW='/srv/www/postgresopen.org/template'
-GITREPO='/home/sfrost/git/postgresopen/template'
+GITREPO='/home/${USER}/git/postgresopen/template'
 
 if [ -z "$VARWWW" -o -z "$GITREPO" ]; then
   echo "Must have var/www and git repo values set!"
