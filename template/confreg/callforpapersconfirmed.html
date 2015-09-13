@@ -1,0 +1,45 @@
+{%extends conftemplbase %}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+                <div class="container">
+
+                        <!-- Call for Papers -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Confirm session - {{conference}}</h2>
+                                </div>
+                                
+                        </section>
+                
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+<p>
+Your session <strong>{{session.title}}</strong> has now been
+confirmed!
+</p>
+
+<p>
+We look forward to seeing you at {{conference}}!
+</p>
+
+{%if conference.active %}
+<p>
+If you have not already done so, you can now procede to
+<a href="/events/register/{{conference.urlname}}/">register</a>
+for the conference.
+</p>
+{%endif%}
+
+<p>
+<a href="../../">Return</a> to your list of sessions.
+</p>
+                                        </div>
+                                </div>
+                        </section>
+                </div>
+        </main>
+{%endblock%}

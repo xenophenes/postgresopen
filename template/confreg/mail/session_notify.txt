@@ -1,0 +1,48 @@
+Hello!
+
+Thank you for submitting a talk to {{conference}}!
+
+Below is your updated status for:
+
+{{session.title|safe}}
+
+{%if session.status == 0%}
+The session has been returned to "submitted" status. Please wait
+for further information from the organizers.{%elif session.status == 1%}
+We're delighted to tell you that your talk has been fully approved for
+{{conference}}, to be held in Dallas, TX, USA on September 16-18! The
+committee wants to thank you for your submission. You made our job
+picking talks very hard, and the conference will be better for it.
+{%if conference.active%}
+If you have not already done so, please proceed to register for
+the conference as soon as you get a chance, at
+{{SITEBASE}}/events/register/{{conference.urlname}}/
+{%endif%}{%elif session.status == 2%}
+Thank you for your submission to {{conference}}. We're sorry to tell you
+that this talk has not been accepted. Your proposal was one of many
+excellent proposals, however due to the number of submissions received
+this year, we could not accommodate them all. We hope you'll chose to
+come to {{conference}} regardless!{%elif session.status == 3%}
+We are happy to let you know that we have decided to accept this
+session for {{conference}}!
+
+Please confirm by June 14, 2015 as to whether or not you will be able
+to give your presentation. If we do not hear from you by June 14, 2015,
+we will have to select another speaker to take your place.
+
+Don't forget to book your room at the Dallas Sheraton
+https://2015.postgresopen.org/venueandhotel/ to help us meet our minimum
+room booking contracted requirement.  Thank you, and we look forward to
+seeing you at {{conference}}!{%elif session.staus == 4%}
+Thank you for your submission to {{conference}}.  This talk is currently
+on the reserve list, meaning we may be in contact for additional details
+or are working on arrangements for travel grants. If you have any
+questions about what this means, please contact the conference
+organizers, we intend to be in touch with an update for you shortly.{%endif%}
+
+If you have made more than one submission to the conference,
+please note that this status only affects this specific session.
+To view the status of all your sessions, please view the website
+
+{{SITEBASE}}/events/callforpapers/{{conference.urlname}}/
+
