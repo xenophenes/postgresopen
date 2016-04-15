@@ -2,14 +2,14 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
+        <section id="main" class="wrapper">
                 <div class="container">
 
                         <!-- Call for Papers -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
                                         <h2>Call for Papers - {{conference}}</h2>
-                                </div>
+                                </header>
                                 
                                 {%if conference.callforpapersopen%}
                                 <p>{{conference.callforpapersintro|safe}}</p>
@@ -19,8 +19,7 @@
                 
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>Your Submissions</h2>
                                                 <p>You have made the following submissions to this conference:
                                                         <ul>
@@ -36,15 +35,13 @@
                                                         {%endfor%}
                                                         </ul>
                                                 </p>
-                                        </div>
-                                </div>
+                          <hr>
                         </section>
                         <!-- Secondary Header -->
 
 {%if conference.callforpapersopen or is_tester%}
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>New submission</h2>
                                                 <p>To create a new submission, enter the title here:
                                                     <form method="post" action="new/" class="pgeucfpnewform">{% csrf_token %}
@@ -55,21 +52,18 @@
                                                 <h2>Remove submission</h2>
                                                 <p>To remove a submission, please contact <a href="mailto:{{conference.contactaddr}}">{{conference.contactaddr}}</a>.
                                                 </p>
-                                        </div>
-                                </div>
+                          <hr>
                         </section>
 {%endif%}
 
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>Speaker profile</h2>
                                                 <p>Your <a href="/events/speakerprofile/{{conference.urlname}}/">shared PostgresOpen speaker profile</a> will be used for all submissions.
                                                 </p>
-                                        </div>
-                                </div>
+                          <hr>
                         </section>
 
                 </div>
-        </main>
+        </section>
 {%endblock%}
