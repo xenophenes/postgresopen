@@ -2,27 +2,23 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
+        <section id="main" class="wrapper">
                 <div class="container">
 
                         <!-- Speaker Profile -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
                                         <h2>Speaker Profile</h2>
-                                </div>
-                        </section>
+                                </header>
 
 {%if not speaker %}
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>New speaker</h2>
                                                 <p>Please fill out the form below to register your speaker profile. Once
                                                    this is done, you will be presented with a list of open call for papers.
                                                 </p>
-                                        </div>
-                                </div>
                         </section>
 {%endif%}
 
@@ -30,8 +26,7 @@
 {%if callforpapers%}
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>Call For Papers!</h2>
                                                 <p>The following conferences currently have open call for papers:
                                                         <ul>
@@ -40,16 +35,13 @@
                                                             {%endfor%}
                                                         </ul>
                                                 </p>
-                                        </div>
-                                </div>
                         </section>
 {%endif%}
 
 {%if conferences%}
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>Conferences</h2>
                                                 <p>You have submitted talks to the following conferences:
                                                         <ul>
@@ -58,15 +50,12 @@
                                                             {%endfor%}
                                                         </ul>
                                                 </p>
-                                        </div>
-                                </div>
                         </section>
 {%endif%}
 
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                                 <h2>Speaker Profile</h2>
                                                 <p>You can edit the contents of your speaker profile here. Please note that
                                                    any changes made here will affect your pages on <i>all</i> conferences
@@ -83,11 +72,11 @@
                                                  <td>{{form.fullname}}{% if form.fullname.errors %}{{ form.fullname.errors}}{% endif %}</td>
                                                 </tr>
                                                 <tr>
-                                                 <th>{{form.twittername.label_tag}}:</th>
+                                                 <th>{{form.twittername.label_tag}}</th>
                                                  <td>{{form.twittername}}{% if form.twittername.errors %}{{ form.twittername.errors}}{% endif %}</td>
                                                 </tr>
                                                 <tr>
-                                                 <th>{{form.company.label_tag}}:</th>
+                                                 <th>{{form.company.label_tag}}</th>
                                                  <td>{{form.company}}{% if form.company.errors %}{{ form.company.errors}}{% endif %}</td>
                                                 </tr>
                                                 <tr>
@@ -95,15 +84,13 @@
                                                  <td>{{form.abstract}}{% if form.abstract.errors %}{{ form.abstract.errors}}{% endif %}</td>
                                                 </tr>
                                                 <tr>
-                                                 <th>{{form.photofile.label_tag}}:</th>
+                                                 <th>{{form.photofile.label_tag}}</th>
                                                  <td>{%if speaker.photofile%}<img src="{{speaker.photofile.url}}"/><br/>{%endif%}{{form.photofile}}{% if form.photofile.errors %}{{ form.photofile.errors}}{% endif %}</td>
                                                 </tr>
                                                 </table>
                                                 <input type="submit" value="Save">
                                                 </form>
-                                        </div>
-                                </div>
                         </section>
                 </div>
-        </main>
+        </section>
 {%endblock%}
