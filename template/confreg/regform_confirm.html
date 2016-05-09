@@ -29,71 +29,77 @@ function confirmInvoice() {
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
+        <section id="main" class="wrapper">
                 
                 <div class="container">
                         
                         <!-- ConfReg -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h2>Confirm Registration - {{conference}}</h2>
-                                </div>
-                                
-                                <p>You are almost done with your registration!</p>
-                        </section>
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                        <h2>Confirm Registration</h2>
+                        </header>
 
-                <!-- Secondary Header -->
+                        <p>You are almost done with your registration!</p>
+                </div>
+
+                 <div class="container">
+
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
                                         <p>
                                         The details below will be included on your invoice. If this is in any
                                         way incorrect, go <a href="../">back</a> to your registration and adjust
                                         it.
                                         </p>
 
-                                        <form method="post" action="." class="pgeuregformconfirm">{% csrf_token %}
-					<fieldset id="fldset_recipient">
-					<legend>Invoice recipient</legend>
-					<div>
-					{{reg.firstname}} {{reg.lastname}}<br/>
-					{%if reg.company%}{{reg.company}}<br/>{%endif%}
-					{{reg.address|linebreaksbr}}<br/>
-					{{reg.country.name}}<br/>
-					</div>
-					</fieldset>
-					<fieldset id="fldset_contents">
-					<legend>Invoice contents</legend>
-                                        <table border="0" cellspacing="0" cellpadding="1" class="invoiceconfirmtbl">
-                                        {%for r in invoicerows%}
-                                        <tr valign="top">
-                                          <td class="desc">{{r.0|leadingnbsp}}</td>
-                                          <td class="cost">{{r.2|intcomma}}</td>
-                                        </tr>
-                                        {%endfor%}
-                                        <tr valign="top" class="totalrow">
-                                          <td class="desc"></td>
-                                          <td class="cost">{{totalcost|intcomma}}</td>
-                                        </tr>
-                                        </table>
-					</fieldset>
+<form method="post" action="." class="pgeuregformconfirm">{% csrf_token %}
+<fieldset id="fldset_recipient">
+<legend>Invoice recipient</legend>
+<div>
+{{reg.firstname}} {{reg.lastname}}<br/>
+{%if reg.company%}{{reg.company}}<br/>{%endif%}
+{{reg.address|linebreaksbr}}<br/>
+{{reg.country.name}}<br/>
+</div>
+</fieldset>
+<fieldset id="fldset_contents">
+<legend>Invoice contents</legend>
+<table border="0" cellspacing="0" cellpadding="1" class="invoiceconfirmtbl">
+{%for r in invoicerows%}
+<tr valign="top">
+  <td class="desc">{{r.0|leadingnbsp}}</td>
+  <td class="cost">{{currency_symbol}} {{r.2|intcomma}}</td>
+</tr>
+{%endfor%}
+<tr valign="top" class="totalrow">
+  <td class="desc"></td>
+  <td class="cost">{{currency_symbol}} {{totalcost|intcomma}}</td>
+</tr>
+</table>
+</fieldset>
 
-                                        <p>
-                                        Once you have confirmed your registration, your registration details will
-                                        be locked and can no longer be edited.
-                                        {%if totalcost%}An invoice will be generated, and this invoice will be
-                                        <i>due for immediate payment</i>. Your registration will not be confirmed until this invoice is paid!{%endif%}
-                                        </p>
+<p>
+Once you have confirmed your registration, your registration details will
+be locked and can no longer be edited.
+{%if totalcost%}An invoice will be generated, and this invoice will be
+<i>due for immediate payment</i>. Your registration will not be confirmed
+until this invoice is paid!{%endif%}
+</p>
+{%if warnings%}
+<div class="warnfld">
+  <ul>
+    {%for w in warnings%}
+    <li>{{w|safe}}</li>
+    {%endfor%}
+  </ul>
+</div>
+{%endif%}
+<input type="submit" name="submit" value="Confirm and finish registration" onclick="return confirmInvoice()"><br/>
+<input type="submit" name="submit" value="Back">
+</form>
 
-                                        <input type="submit" name="submit" value="Confirm and finish registration" onclick="return confirmInvoice()"><br/>
-                                        <input type="submit" name="submit" value="Back">
-                                        </form>
-
-                                        </div>
-                                </div>
                         </section>
                         <!-- Secondary Header -->
                 </div>
-        </main>
+        </section>
 
 {%endblock%}
