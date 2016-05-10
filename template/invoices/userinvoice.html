@@ -1,9 +1,22 @@
 {%extends "navbase.html"%}
 {%block title%}Invoice #{{invoice.pk}}{%endblock%}
 {%block content%}
-<h1>Invoice #{{invoice.pk}}</h1>
 
-{%include "invoices/userinvoice_spec.html"%}
+<section id="main" class="wrapper">
 
-<p><a href="../">Return</a> to the list of all your invoices.</a></p>
+  <div class="container">
+    <!-- ConfReg -->
+    <header class="major">
+      <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+      <h2>Invoice #{{invoice.pk}}</h2>
+    </header>
+
+    {%include "invoices/userinvoice_spec.html"%}
+
+    <p><a href="../">Return</a> to the list of all your invoices.</a></p>
+
+  </div>
+
+</section>
+
 {%endblock%}
