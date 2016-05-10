@@ -27,16 +27,19 @@ function confirmCancel() {
                 <div class="container">
 
                         <section class="section">
-                                <hr>
-
-                                                <p>
-                                                <b>Note!</b> if you wish to register multiple people,
-                                                you must <a href="/logout">log out</a> and back in (with a different account)
-                                                between each registration to avoid conflicts.
-                                                </p>
+                          <hr>
+                          <p>
+                            <b>Note!</b> if you wish to register multiple people,
+                            you must <a href="/logout">log out</a> and back in (with a different account)
+                            between each registration to avoid conflicts.
+                          </p>
+                          <hr>
+                        </section>
 
 {%if reg.registrationwaitlistentry%}
-<h2>Waitlist</h2>
+<section>
+
+<h3>Waitlist</h3>
 <p>
 Your registration is currently on the waitlist.
 </p>
@@ -53,6 +56,8 @@ this offer will expire!
 We will let you know as soon as a seat shows up!
 </p>
 {%endif%}
+<hr>
+</section>
 {%endif%}
 
 <form action="." method="post" class="pgeuregform">{% csrf_token %}
@@ -90,11 +95,15 @@ correction.</p>
  </fieldset>
 {%endfor%}
 
+<section>
+<hr>
  <p>
    You can edit your registration details and save as many times as you want
    in the process. Once you are finished, click <i>Save and finish registration</i>
    to proceed to the payment options.
  </p>
+ <hr>
+ </section>
  <p><input type="submit" name="submit" value="Save and continue editing"></p>
  <p><input type="submit" name="submit" value="Save and finish registration"></p>
  <p><input type="submit" name="submit" onclick="return confirmCancel()" value="Cancel registration"></p>
