@@ -54,7 +54,7 @@
      </p>
      <ul>
      {%for method in invoice.allowedmethodwrappers%}
-     <li><h3>{{method.name}}</h3>
+     <li><b><p>{{method.name}}</p></b>
        {%if method.ok%}
        <p>{{method.description}}</p>
 {%if method.available%}
