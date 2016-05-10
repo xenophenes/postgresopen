@@ -20,6 +20,8 @@
 <h2>Your Registration</h2>
 </header>
 
+<section>
+  <hr>
 <p>
 Your registration (for {{reg.firstname}} {{reg.lastname}}) has been
 completed on {{reg.payconfirmedat}}. Welcome to {{conference}}!
@@ -30,6 +32,8 @@ of the event. We also recommend that you regularly check the
 main <a href="{{conference.confurl}}">event website</a> for public
 news!
 </p>
+<hr>
+</section>
 <section>
 <div id="dash_pagelinks_wrap">
  <ul class="dash_pagelinks" >
@@ -94,7 +98,6 @@ news!
   <h3>Registration summary</h3>
   <p>
     <dl>
-     <dt>Registration type</dt>
      <dd>Your registration type is <i>{{reg.regtype}}</i>.
     {%if reg.regtype.days.count %}
     This registration type gives you access to the conference on {{reg.regtype.days.all|join_days}}.
