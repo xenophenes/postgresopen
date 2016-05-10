@@ -1,4 +1,4 @@
-{%extends conftemplbase %}
+{%extends "base.html" %}
 {%block title%}Invoice payment{%endblock%}
 {%block extrahead%}
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
@@ -14,26 +14,27 @@ braintree.setup('{{token}}', "dropin", {
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
-
-                <div class="container">
+        <section id="main" class="wrapper">
 
                 <div class="container">
 
                         <!-- ConfReg -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                        <header class="major">
+                                <span class="header"><img src="/ext/2016/shared/images/policy.svg" alt="" /></span>
+                                <h2>Invoice payment</h2>
+                        </header>
 
-<h2>Invoice payment</h2>
-                                </div>
-
-<p>You are about to make a payment of <strong>{{currency_symbol}}{{invoice.total_amount}}</strong> for invoice #{{invoice.id}}.</p>
+                        <section>
+                        <hr>
+                        <p>
+<p>You are about to make a payment of <b>{{currency_symbol}}{{invoice.total_amount}}</b> for invoice #{{invoice.id}}.</p>
+                        </p>
+                        <hr>
                         </section>
+                </div>
                 <!-- Secondary Header -->
+                <div class="container">
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
-
 
 <form id="checkout" method="post" action="/p/braintree/">{%csrf_token%}
   <input type="hidden" name="invoice" value="{{invoice.id}}">
@@ -46,12 +47,10 @@ braintree.setup('{{token}}', "dropin", {
   <input type="submit" value="Submit payment">
 </form>
 
-                                        </div>
-                                </div>
+                        <hr>
                         </section>
                         <!-- Secondary Header -->
                 </div>
-        </main>
-
+        </section>
 
 {%endblock%}
