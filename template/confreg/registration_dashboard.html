@@ -30,21 +30,24 @@ of the event. We also recommend that you regularly check the
 main <a href="{{conference.confurl}}">event website</a> for public
 news!
 </p>
+<section>
 <div id="dash_pagelinks_wrap">
  <ul class="dash_pagelinks" >
 {%if wikipages%}
-  <li><a href="#wiki">Wiki pages</a> &bull;</li>
+  <li><a href="#wiki">Wiki pages</a></li>
 {%endif%}
 {%if signups%}
-  <li><a href="#signups">Signups</a> &bull;</li>
+  <li><a href="#signups">Signups</a></li>
 {%endif%}
 {%if conference.callforpapersopen%}
-  <li><a href="/events/callforpapers/{{conference.urlname}}/">Call for papers</a> &bull;</li>
+  <li><a href="/events/callforpapers/{{conference.urlname}}/">Call for papers</a></li>
 {%elif is_speaker%}
-  <li><a href="/events/callforpapers/{{conference.urlname}}/">Your speaker profile</a> &bull;</li>
+  <li><a href="/events/callforpapers/{{conference.urlname}}/">Your speaker profile</a></li>
 {%endif%}
  </ul>
 </div>
+<hr>
+</section>
 
 <section>
   <h3>Information Emails</h3>
