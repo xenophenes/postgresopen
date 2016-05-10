@@ -19,16 +19,16 @@ table.reginfotbl td.firstcol {
         <!-- Content
         ================================================== -->
         <section id="main" class="wrapper">
-                
+
                 <div class="container">
-                        
+
                         <!-- ConfReg -->
                         <header class="major">
                                 <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
                                         <h2>Conference Registration</h2>
                                 </div>
                         </header>
-                                
+
                                 <p>
                                 <b>NOTE!</b> if you wish to register multiple people,
                                 you must <a href="/logout">log out</a> and back in (with a different account)
@@ -67,7 +67,7 @@ to it. If you need to adjust anything, please contact the conference organizers
 at {{conference.contactaddr}}.
 </p>
 <fieldset id="personal_information">
- <legend>Personal information</legend>
+ <p><b><legend>Personal information</legend></b></p>
  <table class="reginfotbl">
   <tr><td class="firstcol">Username</td><td>{{user.username}}</td></tr>
   <tr><td class="firstcol">Registration type</td><td>{{reg.regtype}}</td></tr>
@@ -84,7 +84,7 @@ at {{conference.contactaddr}}.
 </fieldset>
 {%if conference.asktshirt or conference.askfood or conference.askshareemail%}
 <fieldset>
- <legend>Conference information</legend>
+ <p><b><legend>Conference information</legend></b></p>
  <table class="reginfotbl">
  {%if conference.asktshirt%}
   <tr><td class="firstcol">T-shirt size</td><td>{{reg.shirtsize|default:''}}</td></tr>
@@ -100,7 +100,7 @@ at {{conference.contactaddr}}.
 {%endif%}
 {%if reg.additionaloptions.all %}
 <fieldset>
- <legend>Additional options</legend>
+ <p><b><legend>Additional options</legend></b></p>
  <ul>{%for ao in reg.additionaloptions.all%}<li>{{ao.name}}</li>{%endfor%}</ul>
 </fieldset>
 {%endif%}
