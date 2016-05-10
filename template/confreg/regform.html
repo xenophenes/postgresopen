@@ -78,9 +78,10 @@ correction.</p>
   {%for f in fieldset.fields%}
   <div class="regwrap{%if f.errors%} errfld{%endif%}">
     <div class="regleft">
-      {{f.label_tag}} <br/>
+      {{f.label_tag}}
       {{f}}
     </div>
+    <br />
     <div class="regright">
       {% if f.errors %}{{ f.errors}}{% endif %}
     </div>
