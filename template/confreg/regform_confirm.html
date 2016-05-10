@@ -30,9 +30,9 @@ function confirmInvoice() {
         <!-- Content
         ================================================== -->
         <section id="main" class="wrapper">
-                
+
                 <div class="container">
-                        
+
                         <!-- ConfReg -->
                         <header class="major">
                                 <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
@@ -53,16 +53,16 @@ function confirmInvoice() {
 
 <form method="post" action="." class="pgeuregformconfirm">{% csrf_token %}
 <fieldset id="fldset_recipient">
-<legend>Invoice recipient</legend>
-<div>
+<p><b><legend>Invoice recipient:</legend></b></p>
+<p><div>
 {{reg.firstname}} {{reg.lastname}}<br/>
 {%if reg.company%}{{reg.company}}<br/>{%endif%}
 {{reg.address|linebreaksbr}}<br/>
 {{reg.country.name}}<br/>
-</div>
+</div></p>
 </fieldset>
 <fieldset id="fldset_contents">
-<legend>Invoice contents</legend>
+<p><b><legend>Invoice contents:</legend></b></p>
 <table border="0" cellspacing="0" cellpadding="1" class="invoiceconfirmtbl">
 {%for r in invoicerows%}
 <tr valign="top">
@@ -93,8 +93,8 @@ until this invoice is paid!{%endif%}
   </ul>
 </div>
 {%endif%}
-<input type="submit" name="submit" value="Confirm and finish registration" onclick="return confirmInvoice()"><br/>
-<input type="submit" name="submit" value="Back">
+<p><input type="submit" name="submit" value="Confirm and finish registration" onclick="return confirmInvoice()"></p>
+<p><input type="submit" name="submit" value="Back"></p>
 </form>
 
                         </section>
