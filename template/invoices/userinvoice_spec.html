@@ -1,4 +1,4 @@
-<table style="border: 1px solid black;">
+<table>
  <tr>
   <td style="white-space: nowrap">Invoice number:</td>
   <td>{{invoice.pk}}</td>
@@ -54,7 +54,7 @@
      </p>
      <ul>
      {%for method in invoice.allowedmethodwrappers%}
-     <li><h3>{{method.name}}</h3>
+     <li><b><p>{{method.name}}</p></b>
        {%if method.ok%}
        <p>{{method.description}}</p>
 {%if method.available%}
