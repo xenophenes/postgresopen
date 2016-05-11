@@ -1,29 +1,42 @@
 {%extends "navbase.html"%}
 {%block title%}Your invoices{%endblock%}
 {%block content%}
-<h1>Your invoices</h1>
+<section id="main" class="wrapper">
 
-<p>
-We have the following invoices registered to your account:
-</p>
+        <div class="container">
 
-<table border="1" cellspacing="0" cellpadding="3">
-<tr>
- <th>Number</th>
- <th>Title</th>
- <th>Status</th>
- <th>Due</th>
- <th>Receipt</th>
-</tr>
-{%for invoice in invoices %}
-<tr>
- <td>#{{invoice.id}}</td>
- <td><a href="{{invoice.id}}/">{{invoice.title}}</td>
- <td>{%if invoice.refund%}{%if invoice.refund.completed%}Refunded{%else%}Refund pending{%endif%}{%elif invoice.ispaid%}Paid{%else%}Pending{%endif%}</td>
- <td>{{invoice.duedate|date:"Y-m-d"}}</td>
- <td>{%if invoice.ispaid and not invoice.refunded%}<a href="{{invoice.id}}/receipt/">Download</a>{%endif%}</td>
-</tr>
-{%endfor%}
-</table>
+                <!-- ConfReg -->
+                <header class="major">
+                  <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                  <h2>Your Invoices</h2>
+                </header>
+
+                <section>
+                  <hr>
+                  <p>We have the following invoices registered to your account:</p>
+                </section>
+
+                <section>
+                  <table border="1" cellspacing="0" cellpadding="3">
+                  <tr>
+                   <th>Number</th>
+                   <th>Title</th>
+                   <th>Status</th>
+                   <th>Due</th>
+                   <th>Receipt</th>
+                  </tr>
+                  {%for invoice in invoices %}
+                  <tr>
+                   <td>#{{invoice.id}}</td>
+                   <td><a href="{{invoice.id}}/">{{invoice.title}}</td>
+                   <td>{%if invoice.refund%}{%if invoice.refund.completed%}Refunded{%else%}Refund pending{%endif%}{%elif invoice.ispaid%}Paid{%else%}Pending{%endif%}</td>
+                   <td>{{invoice.duedate|date:"Y-m-d"}}</td>
+                   <td>{%if invoice.ispaid and not invoice.refunded%}<a href="{{invoice.id}}/receipt/">Download</a>{%endif%}</td>
+                  </tr>
+                  {%endfor%}
+                  </table>
+                </section>
+        </div>
+</section>
 
 {%endblock%}
