@@ -46,7 +46,7 @@
  </tr>
 {%else%}
  <tr>
-   <td style="white-space: nowrap">Pay invoice:</td>
+   <td style="white-space: nowrap" style="color:red">Pay invoice:</td>
    <td>
      <p>
        This invoice can be paid using one of the methods listed below. Note
@@ -58,7 +58,7 @@
        {%if method.ok%}
        <p>{{method.description}}</p>
 {%if method.available%}
-       <p><a href="{{method.paymenturl}}">Proceed</a> to pay with {{method.name}}</p>
+       <p><a href="{{method.paymenturl}}" style="color:red">Proceed</a> to pay with {{method.name}}</p>
 {%else%}
        <p><i>This method is currently not available. {{method.unavailable_reason}}</i></p>
 {%endif%}
