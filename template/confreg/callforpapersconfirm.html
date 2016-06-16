@@ -2,21 +2,18 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
+        <section id="main" class="wrapper">
                 <div class="container">
 
                         <!-- Call for Papers -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h2>Confirm session - {{conference}}</h2>
-                                </div>
-                                
-                        </section>
-                
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                        <h2>Confirm Session - {{conference}}</h2>
+                                </header>
+
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                                <hr>
 <p>
 Your session <strong>{{session.title}}</strong> is currently
 in state <em>pending</em>. This means that the session has been
@@ -33,20 +30,19 @@ you confirm the session.
 
 <p>
 As always, if you have any questions at all about your session,
-don't hesitate to <a href="mailto:{{conference.contactaddr}}">contact</a>
+don't hesitate to <b><a href="mailto:{{conference.contactaddr}}">contact</a></b>
 the organizers!
 </p>
 
-<h3>Confirmation</h3>
+<h2>Confirmation</h2>
 <form method="post" action=".">{% csrf_token %}
 <input type="checkbox" name="is_confirmed" value="1"> By checking this box,
 you confirm that you wil be able to attend and deliver this session.
 <br/>
 <input type="submit" value="Confirm">
 </form>
-                                        </div>
-                                </div>
+
                         </section>
                 </div>
-        </main>
+        </section>
 {%endblock%}
