@@ -3,21 +3,19 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
-
+        <section id="main" class="wrapper">
                 <div class="container">
 
-                        <!-- ConfReg -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h1>{{session.title}}</h1>
-                                        <a href="../../">Back</a><br/>
-                                </div>
-                        </section>
+                        <!-- Call for Papers -->
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                  <h2>{{session.title}}</h2>
+                                  <a href="../../">Back</a><br/>
+                                </header>
+
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                             <p>
                                             {%if session.starttime|date %}<b>Date:</b> {{session.starttime|date}}<br/>{%endif%}
                                             {%if session.starttime|time:"H:i" %}<b>Time:</b> {{session.starttime|time:"H:i"}} - {{session.endtime|time:"H:i"}}<br/>{%endif%}
@@ -43,11 +41,8 @@
                                             {{session.speaker.abstract|markdown}}
                                             </p>
 
-                                        </div>
-                                </div>
                         </section>
                         <!-- Secondary Header -->
                 </div>
-        </main>
+        </section>
 {%endblock%}
-
