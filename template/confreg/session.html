@@ -32,7 +32,7 @@
                                             {{session.abstract|markdown}}
                                             </p>
 
-                                            <h2>Speaker</h2>
+                                            <h3>Speaker</h3>
                                             {%for speaker in session.speaker.all%}
                                             <b><a href="../../speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></b><br/>
                                             {%endfor%}

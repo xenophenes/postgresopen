@@ -2,13 +2,20 @@
 {%block content%}
 
 <!-- Content ================================================== -->
-<main class="main-content">
-  <div class="container">
+<section id="main" class="wrapper">
+        <div class="container">
 
-    <h2>Session: {{session.shorttitle}}</h2>
+                <!-- Call for Papers -->
+                <header class="major">
+                        <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                <h2>Session: {{session.shorttitle}}</h2>
+                        </header>
+
+<section>
+  <hr>
     <p><a href="..">Back</a> to the session list.</p>
 
-    <p>Please rate the following aspects of the talk that you have been to, on a 
+    <p>Please rate the following aspects of the talk that you have been to, on a
     scale from 1-5, <b>with 5 being the highest or "best"</b>.</p>
     <p>If you wish to leave any comments for the speaker or the conference
     organizers, please do so in the text boxes below. Note that all your data
@@ -25,7 +32,7 @@
       </table>
       <input type="submit" value="Save">
     </form>
-
+</section>
   </div>
-</main>
+</section>
 {%endblock%}

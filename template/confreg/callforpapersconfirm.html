@@ -34,11 +34,10 @@ don't hesitate to <b><a href="mailto:{{conference.contactaddr}}">contact</a></b>
 the organizers!
 </p>
 
-<h2>Confirmation</h2>
+<h3>Confirmation</h3>
 <form method="post" action=".">{% csrf_token %}
-<input type="checkbox" name="is_confirmed" value="1"> By checking this box,
-you confirm that you wil be able to attend and deliver this session.
-<br/>
+<input type="checkbox" name="is_confirmed" value="1"><p>By checking this box,
+you confirm that you will be able to attend and deliver this session.</p>
 <input type="submit" value="Confirm">
 </form>
 

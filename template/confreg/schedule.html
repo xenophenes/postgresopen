@@ -38,32 +38,28 @@ div.track{{track.id}} {
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
-
-                <p>This schedule is also available for <a href="/m/{{conference.urlname}}/">mobile users</a>
-                   and is available in <a href="ical/">iCalendar</a> format.</p>
-
+        <section id="main" class="wrapper">
                 <div class="container">
 
                         <!-- Call for Papers -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h2>Conference Schedule - {{conference}}</h2>
-                                </div>
-                                
-                                <p>You can find the full conference information at the
-                                   <a href="{{conference.confurl}}">conference website</a>.
-                                   This schedule is subject to changes. This page will be updated when any
-                                   changes occur.
-                                </p>
-                                <p>A list of the sessions can be found <a href="/events/sessions/{{conference.urlname}}/">here</a>.
-                                </p>
-                        </section>
-                
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/calendar.svg" alt="" /></span>
+                                        <h2>Schedule - {{conference}}</h2><br>
+                                        <p>This schedule is also available for <a href="/m/{{conference.urlname}}/">mobile users</a>
+                                           and is available in <a href="ical/">iCalendar</a> format.</p>
+                                           <p>You can find the full conference information at the
+                                              <a href="{{conference.confurl}}">conference website</a>.
+                                              This schedule is subject to changes. This page will be updated when any
+                                              changes occur.
+                                           </p>
+                                           <p>A list of the sessions can be found <a href="/events/sessions/{{conference.urlname}}/">here</a>.
+                                           </p>
+                                </header>
+
+
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
                                             {%for day in days%}
                                             <h2>{{day.day|date:"l, F d"}}</h2>
                                             <div class="schedwrap" style="height: {{day.schedule_height}}px; width: {{day.schedule_width}}px;">
@@ -85,12 +81,10 @@ div.track{{track.id}} {
                                             </div>
                                             <br>
                                             {%endfor%}
-                                        </div>
-                                </div>
                         </section>
 
                 </div>
 
-        </main>
+        </section>
 
 {%endblock%}

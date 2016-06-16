@@ -10,17 +10,17 @@
                                 <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
                                         <h2>Call for Papers - {{conference}}</h2>
                                 </header>
-                                
+
                                 {%if conference.callforpapersopen%}
                                 <p>{{conference.callforpapersintro|safe}}</p>
-                                {%endif%} 
-                        
+                                {%endif%}
+
                         <!-- Secondary Header -->
 
 {%if conference.callforpapersopen or is_tester%}
                         <section class="section">
                           <hr>
-                                                <h2>New submission</h2>
+                                                <h3>New submission</h3>
                                                 <p>To create a new submission, enter the title here:
                                                     <form method="post" action="." class="pgeucfpnewform">{% csrf_token %}
                                                      {{form.title}}{% if form.title.errors %}{{ form.title.errors}}{% endif %}<br/>
@@ -33,7 +33,7 @@
                 <!-- Secondary Header -->
                         <section class="section">
                           <hr>
-                                                <h2>Your Submissions</h2>
+                                                <h3>Your Submissions</h3>
                                                 <p>You have made the following submissions to this conference:
                                                         <ul class="unstyled">
                                                         {%for s in sessions%}
@@ -48,14 +48,14 @@
                                                         {%endfor%}
                                                         </ul>
                                                 </p>
-                                                <h2>Remove submission</h2>
+                                                <h3>Remove submission</h3>
                                                 <p>To remove a submission, please contact <b><a href="mailto:{{conference.contactaddr}}">{{conference.contactaddr}}</a></b>.
                                                 </p>
                         </section>
 
                         <section class="section">
                           <hr>
-                                                <h2>Speaker profile</h2>
+                                                <h3>Speaker profile</h3>
                                                 <p>Your <b><a href="/events/speakerprofile/{{conference.urlname}}/">shared PostgresOpen speaker profile</a></b> will be used for all submissions.
                                                 </p>
                                                 <hr>
