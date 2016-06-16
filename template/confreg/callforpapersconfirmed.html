@@ -2,21 +2,18 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
+        <section id="main" class="wrapper">
                 <div class="container">
 
                         <!-- Call for Papers -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h2>Confirm session - {{conference}}</h2>
-                                </div>
-                                
-                        </section>
-                
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                        <h2>Confirm Session - {{conference}}</h2>
+                                </header>
+
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
+                          <hr>
 <p>
 Your session <strong>{{session.title}}</strong> has now been
 confirmed!
@@ -37,9 +34,8 @@ for the conference.
 <p>
 <a href="../../">Return</a> to your list of sessions.
 </p>
-                                        </div>
-                                </div>
+
                         </section>
                 </div>
-        </main>
+        </section>
 {%endblock%}
