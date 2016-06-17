@@ -3,41 +3,36 @@
 {%block content%}
         <!-- Content
         ================================================== -->
-        <main class="main-content">
-
+        <section id="main" class="wrapper">
                 <div class="container">
 
-                        <!-- ConfReg -->
-                        <section class="section">
-                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
-                                        <h2>{{speaker.name}}</h2>
-                                        <a href="../../">Back</a><br/>
-                                </div>
-                        </section>
+                        <!-- Call for Papers -->
+                        <header class="major">
+                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
+                                <h2>{{speaker.name}}</h2><br>
+                                </header>
+
                 <!-- Secondary Header -->
                         <section class="section">
-                                <div class="clearfix">
-                                        <div class="title title__lg pull-left">
-                                             {%if speaker.photofile %}
-                                             <img src="../../../../speaker/{{speaker.id}}/photo/" align="right" />
-                                             {%endif%}
-                                             {%if speaker.company%}<div>Company: {{speaker.company}}</div>{%endif%}
-                                             {%if speaker.twittername%}<div>Twitter: <a href="http://twitter.com/{{speaker.twittername}}">{{speaker.twittername}}</a></div>{%endif%}
-                                             <p>
-                                             {{speaker.abstract|markdown}}
-                                             </p>
+                          <hr>
+                          <a href="../../">Back</a><br/>
+                         {%if speaker.photofile %}
+                         <img src="../../../../speaker/{{speaker.id}}/photo/" align="right" />
+                         {%endif%}
+                         {%if speaker.company%}<div>Company: {{speaker.company}}</div>{%endif%}
+                         {%if speaker.twittername%}<div>Twitter: <a href="http://twitter.com/{{speaker.twittername}}">{{speaker.twittername}}</a></div>{%endif%}
+                         <p>
+                         {{speaker.abstract|markdown}}
+                         </p>
 
-                                             <p><b>Sessions</b></p>
-                                             <ul>
-                                             {%for session in sessions%}
-                                              <li><a href="../../session/{{session.id}}-{{session.title|slugify}}/">{{session.title}}</a></li>
-                                             {%endfor%}
-                                             </ul>
-                                        </div>
-                                </div>
+                         <p><b>Sessions</b></p>
+                         <ul>
+                         {%for session in sessions%}
+                          <li><a href="../../session/{{session.id}}-{{session.title|slugify}}/">{{session.title}}</a></li>
+                         {%endfor%}
+                         </ul>
                         </section>
                         <!-- Secondary Header -->
                 </div>
-        </main>
+        </section>
 {%endblock%}
-

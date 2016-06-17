@@ -9,17 +9,19 @@
                         <header class="major">
                                 <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/policy.svg" alt="" /></span>
                                 <h2>Conference Sessions - {{conference}}</h2><br>
-                                <p> The following list contains all the talks that have been confirmed so far
-                                    for {{conference}}.  Note that they may not yet have been scheduled!  You
-                                    can find the full conference information <a href="{{conference.confurl}}">here</a>.
-                                </p>
                                 </header>
                 <!-- <p>The schedule is also available for <a href="/m/{{conference.urlname}}/#schedule">mobile users</a>
                    and is available in <a href="ical/">iCalendar</a> format.</p> -->
 
-
-                        </section>
                 <!-- Secondary Header -->
+                        <section class="section">
+                          <hr>
+                          <p> The following list contains all the talks that have been confirmed so far
+                              for {{conference}}.  Note that they may not yet have been scheduled!  You
+                              can find the full conference information <a href="{{conference.confurl}}">here</a>.
+                          </p>
+                        </section>
+
                         <section class="section">
                           <hr>
                                             {%for session in sessions%}
