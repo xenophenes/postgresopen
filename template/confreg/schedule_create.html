@@ -140,6 +140,10 @@ function saveDraft() {
 
 </head>
 <body>
+  <!-- Content
+  ================================================== -->
+  <section id="main" class="wrapper">
+          <div class="container">
 <h1>Create Conference Schedule - {{conference}}</h1>
 <p>
 <b>NOTE! THIS IS FOR CREATING A TENTATIVE SCHEDULE ONLY!</b>
@@ -154,7 +158,7 @@ the talk slot, if your schedule supports multiple different lengths.
 <div id="availablewrapper" style="float:right; border:1px solid blue;width:{{sesswidth}}px;height:500px;">
   <h3>Available sessions</h3>
   {%for s in sessions %}
-   <div id="sess{{s.id}}" class="sessblock actualsession track{{s.track.id}}{%if s.ispending%} sesspending{%endif%}" style="top: {{s.top}}px; width: {{sesswidth}}px; height: {{s.height}}px;">{{s.title}}<br/><i>{{s.speaker_list}}</i></div>
+   <div id="sess{{s.id}}" class="sessblock actualsession track{{s.track.id}}{%if s.ispending%} sesspending{%endif%}" style="top: {{s.top}}px; width: {{sesswidth}}px; height: {{s.height}}px;"><br/>{{s.title}}<br/><i>{{s.speaker_list}}</i></div>
   {%endfor%}
 </div>
 
@@ -179,5 +183,7 @@ the talk slot, if your schedule supports multiple different lengths.
 When you are ready to publish, click <a href="publish/">here</a>. (you must
 save using the standard save button first, of course)
 </p>
+</div>
+</section>
 </body>
 </html>
