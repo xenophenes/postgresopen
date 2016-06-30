@@ -83,6 +83,8 @@ div.track{{track.id}} {
                               {{session.timeslot}} - <b>{{session.title}}</b>
                             {%endif%}
                               {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
+                            {%if session.id and session.title|length < 40%} <br/> {%endif%}
+                            {%if session.id and session.title|length < 80%} <br/> {%endif%}
                             </p></div>
                             {%endif%}
                             {%endfor%}
