@@ -97,7 +97,6 @@ div.track{{track.id}} {
                              <h4><div class="sessblock roomheader">
                              {{room.name}}
                            </div></h4>
-                            {%endfor%}
                             <br>
                             {%for session in day.sessions%}
                              <div class="sessblock track{{session.track.id}}">
@@ -109,6 +108,7 @@ div.track{{track.id}} {
                             {%endif%}
                               {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
                              </div>
+                            {%endfor%}
                             {%endfor%}
                           </section>
                         </div>
