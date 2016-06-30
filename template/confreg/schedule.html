@@ -62,7 +62,8 @@ div.track{{track.id}} {
                   {%for day in days%}
                   <section class="section">
                     <div class="container">
-                      <h2>{{day.day|date:"l, F d"}}</h2>
+                      <hr>
+                      <h2 style="text-align:center;">{{day.day|date:"l, F d"}}</h2>
                       <div class="row">
                             {%for room in day.rooms%}
                         <div class="4u 12u$(medium)">
