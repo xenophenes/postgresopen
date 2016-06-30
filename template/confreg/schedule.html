@@ -73,15 +73,15 @@ div.track{{track.id}} {
                             <br>
                             {%for session in day.sessions%}
                             {%if session.leftpos == room.leftpos%}
-                             <div class="sessblock track{{session.track.id}}">
+                             <div class="sessblock track{{session.track.id}}"><p>
                                <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
                             {%if session.id%}
-                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b></a>
+                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b><br/></a>
                             {%else%}
                               {{session.timeslot}} - <b>{{session.title}}</b>
                             {%endif%}
                               {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
-                             </div>
+                            </p></div>
                             {%endif%}
                             {%endfor%}
                           </section>
