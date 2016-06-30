@@ -67,9 +67,10 @@ div.track{{track.id}} {
                             {%for room in day.rooms%}
                         <div class="4u 12u$(medium)">
                           <section class="box">
-                             <h4><div class="sessblock roomheader">
+                             <h4 style="text-align:center;"><div class="sessblock roomheader">
                              {{room.name}}
                            </div></h4>
+                           <hr>
                             <br>
                             {%for session in day.sessions%}
                             {%if session.leftpos == room.leftpos or session.widthpos == 1198 %}
