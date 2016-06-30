@@ -66,7 +66,7 @@ div.track{{track.id}} {
                                             <h2>{{day.day|date:"l, F d"}}</h2>
                                             <div class="schedwrap" style="height: {{day.schedule_height}}px; width: {{day.schedule_width}}px;">
                                             {%for room in day.rooms%}
-                                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px;"><br>
+                                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px; height: 100px;">
                                              {{room.name}}
                                              </div>
                                             {%endfor%}
