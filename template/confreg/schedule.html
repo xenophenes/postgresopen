@@ -94,9 +94,9 @@ div.track{{track.id}} {
                         <div class="4u 12u$(medium)">
                           <section class="box">
                             {%for room in day.rooms%}
-                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px; height: 100px;">
+                             <h4><div class="sessblock roomheader">
                              {{room.name}}
-                             </div>
+                           </div></h4>
                             {%endfor%}
                             <br>
                             {%for session in day.sessions%}
