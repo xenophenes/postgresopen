@@ -60,10 +60,9 @@ div.track{{track.id}} {
                                      </p>
                                    </section>
                 <!-- Secondary Header -->
+                {%for day in days%}
                         <section class="section">
                           <hr>
-
-                                            {%for day in days%}
                                             <h2>{{day.day|date:"l, F d"}}</h2>
                                             <div class="schedwrap" style="height: {{day.schedule_height}}px; width: {{day.schedule_width}}px;">
                                             {%for room in day.rooms%}
@@ -83,8 +82,8 @@ div.track{{track.id}} {
                                             {%endfor%}
                                             </div>
                                             <br>
-                                            {%endfor%}
                         </section>
+                  {%endfor%}
 
                 </div>
 
