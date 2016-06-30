@@ -72,7 +72,7 @@ div.track{{track.id}} {
                            </div></h4>
                             <br>
                             {%for session in day.sessions%}
-                            {%if session.leftpos == room.leftpos%}
+                            {%if session.leftpos == room.leftpos or session.widthpos == 1198 %}
                              <div class="sessblock track{{session.track.id}}"><p>
                                <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
                             {%if session.id%}
