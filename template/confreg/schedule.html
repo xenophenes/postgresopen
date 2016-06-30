@@ -59,7 +59,7 @@ div.track{{track.id}} {
                                      <p>A list of the sessions can be found <a href="/events/sessions/{{conference.urlname}}/">here</a>.
                                      </p>
                                    </section>
-                <!-- Secondary Header -->
+                <!-- Secondary Header
                 {%for day in days%}
                         <section class="section">
                           <hr>
@@ -71,9 +71,9 @@ div.track{{track.id}} {
                                              </div>
                                             {%endfor%}
                                             {%for session in day.sessions%}
-                                             <div class="sessblock track{{session.track.id}}">
+                                             <div class="sessblock track{{session.track.id}}">-->
                                                <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
-                                            {%if session.id%}
+                                            <!--{%if session.id%}
                                               <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b></a>
                                             {%else%}
                                               {{session.timeslot}} - <b>{{session.title}}</b>
@@ -85,6 +85,81 @@ div.track{{track.id}} {
                                             <br>
                         </section>
                   {%endfor%}
+                  -->
+                  {%for day in days%}
+                  <section class="section">
+                    <div class="container">
+                      <h2>{{day.day|date:"l, F d"}}</h2>
+                      <div class="row">
+                        <div class="4u 12u$(medium)">
+                          <section class="box">
+                            {%for room in day.rooms%}
+                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px; height: 100px;">
+                             {{room.name}}
+                             </div>
+                            {%endfor%}
+                            <br>
+                            {%for session in day.sessions%}
+                             <div class="sessblock track{{session.track.id}}">
+                               <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
+                            {%if session.id%}
+                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b></a>
+                            {%else%}
+                              {{session.timeslot}} - <b>{{session.title}}</b>
+                            {%endif%}
+                              {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
+                             </div>
+                            {%endfor%}
+                          </section>
+                        </div>
+                        <div class="4u 12u$(medium)">
+                          <section class="box">
+                            {%for room in day.rooms%}
+                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px; height: 100px;">
+                             {{room.name}}
+                             </div>
+                            {%endfor%}
+                            <br>
+                            {%for session in day.sessions%}
+                             <div class="sessblock track{{session.track.id}}">
+                               <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
+                            {%if session.id%}
+                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b></a>
+                            {%else%}
+                              {{session.timeslot}} - <b>{{session.title}}</b>
+                            {%endif%}
+                              {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
+                             </div>
+                            {%endfor%}
+                          </section>
+                        </div>
+                        <div class="4u 12u$(medium)">
+                          <section class="box">
+                            {%for room in day.rooms%}
+                             <div class="sessblock roomheader" style="left: {{room.leftpos}}px; width: {{room.widthpos}}px; height: 100px;">
+                             {{room.name}}
+                             </div>
+                            {%endfor%}
+                            <br>
+                            {%for session in day.sessions%}
+                             <div class="sessblock track{{session.track.id}}">
+                               <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
+                            {%if session.id%}
+                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b></a>
+                            {%else%}
+                              {{session.timeslot}} - <b>{{session.title}}</b>
+                            {%endif%}
+                              {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
+                             </div>
+                            {%endfor%}
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  {%endfor%}
+
+
 
                 </div>
 
