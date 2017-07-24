@@ -1,4 +1,4 @@
-{%extends conftemplbase %}
+{%extends "base.html" %}
 {%block title%}Conference Schedule - {{conference}}{%endblock%}
 {%block extrahead%}
 <style media="print">
@@ -19,13 +19,12 @@ div.sessblock {
 }
 div.roomheader {
    font-weight: bold;
-   font-size: 0.8em;
+   font-size: 1.2em;
    top: 0px;
    text-align: center;
 }
 div.sessblock a {
    text-decoration: none;
-   font-size: 0.7em;
    color: black;
 }
 {%for track in tracks%}
@@ -36,72 +35,53 @@ div.track{{track.id}} {
 </style>
 {%endblock%}
 {%block content%}
-        <!-- Content
-        ================================================== -->
-        <section id="main" class="wrapper">
-                <div class="container">
+<h1>Conference Schedule - {{conference}}</h1>
+<p>
+You can find the full conference information at the
+<a href="{{conference.confurl}}">conference website</a>.
+This schedule is subject to changes. This page will be updated when any
+changes occur.
+</p>
 
-                        <!-- Call for Papers -->
-                        <header class="major">
-                                <span class="header"><img src="/ext/{{conference.urlname}}/shared/images/calendar.svg" alt="" /></span>
-                                        <h2>Schedule - {{conference}}</h2>
-                                </header>
-
-                                <section class="section">
-                                  <hr>
-                                  <p>This schedule is also available for <a href="/m/{{conference.urlname}}/">mobile users</a>
-                                     and is available in <a href="ical/">iCalendar</a> format.</p>
-                                     <p>You can find the full conference information at the
-                                        <a href="{{conference.confurl}}">conference website</a>.
-                                        This schedule is subject to changes. This page will be updated when any
-                                        changes occur.
-                                     </p>
-                                     <p>A list of the sessions can be found <a href="/events/sessions/{{conference.urlname}}/">here</a>.
-                                     </p>
-                                   </section>
-                  {%for day in days%}
-                  <section class="section">
-                    <div class="container">
-                      <hr>
-                      <h2 style="text-align:center;">{{day.day|date:"l, F d"}}</h2>
-                      <div class="row">
-                            {%for room in day.rooms%}
-                        <div class="4u 12u$(medium)">
-                          <section class="box">
-                             <h4 style="text-align:center;"><div class="sessblock roomheader">
-                             {{room.name}}
-                           </div></h4>
-                           <hr>
-                            {%for session in day.sessions%}
-                            {%if session.leftpos == room.leftpos or session.widthpos == 1198 %}
-                            {%if session.id%}
-                             <div class="sessblock track{{session.track.id}}" style="height: 120px;"><p>
-                               <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
-                            {%else%}
-                             <div class="sessblock track{{session.track.id}}" style="height: 20px;"><p>
-                            {%endif%}
-                            {%if session.id%}
-                              <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b><br/></a>
-                            {%else%}
-                              {{session.timeslot}} - <b>{{session.title}}</b>
-                            {%endif%}
-                              {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
-                            </p></div>
-                           <hr>
-                            {%endif%}
-                            {%endfor%}
-                          </section>
-                        </div>
-                            {%endfor%}
-                      </div>
-                    </div>
-                  </section>
-                  {%endfor%}
-
-
-
-                </div>
-
+{%for day in days%}
+<section class="section">
+  <div class="container">
+    <hr>
+    <h2 style="text-align:center;">{{day.day|date:"l, F d"}}</h2>
+    <div class="row">
+          {%for room in day.rooms%}
+      <div class="4u 12u$(medium)">
+        <section class="box">
+           <h4 style="text-align:center;"><div class="sessblock roomheader">
+           {{room.name}}
+         </div></h4>
+         <hr>
+          {%for session in day.sessions%}
+          {%if session.leftpos == room.leftpos or session.widthpos == 1198 %}
+          {%if session.id%}
+           <div class="sessblock track{{session.track.id}}" style="height: 120px;"><p>
+             <!--style="top: {{session.toppos}}px; left: {{session.leftpos}}px; width: {{session.widthpos}}px; height: {{session.heightpos}}px;-->
+          {%else%}
+           <div class="sessblock track{{session.track.id}}" style="height: 20px;"><p>
+          {%endif%}
+          {%if session.id%}
+            <a href="session/{{session.id}}-{{session.title|slugify}}/">{{session.timeslot}}<br/><b>{{session.title}}</b><br/></a>
+          {%else%}
+            {{session.timeslot}} - <b>{{session.title}}</b>
+          {%endif%}
+            {%for speaker in session.speakers %}{%if forloop.first%}{%else%}, {%endif%}<i><a href="speaker/{{speaker.id}}-{{speaker.name|slugify}}/">{{speaker.name}}</a></i>{%endfor%}
+          </p></div>
+         <hr>
+          {%endif%}
+          {%endfor%}
         </section>
+      </div>
+          {%endfor%}
+    </div>
+  </div>
+</section>
+{%endfor%}
+
+<p>This schedule is also available in <a href="ical/">iCalendar</a> format.</p>
 
 {%endblock%}
